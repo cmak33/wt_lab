@@ -10,10 +10,10 @@ public class Book implements Cloneable, Comparable<Book> {
         this.isbn = isbn;
     }
 
-    private String title;
-    private String author;
-    private int price;
-    private String isbn;
+    private final String title;
+    private final String author;
+    private final int price;
+    private final String isbn;
     private static int edition;
 
     public static int getEdition() {
@@ -73,10 +73,6 @@ public class Book implements Cloneable, Comparable<Book> {
     public Book clone() {
         try {
             Book cloneBook = (Book) super.clone();
-            cloneBook.title = this.title;
-            cloneBook.author = this.author;
-            cloneBook.price = this.price;
-            cloneBook.isbn = this.isbn;
             return cloneBook;
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
